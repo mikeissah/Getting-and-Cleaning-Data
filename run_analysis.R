@@ -11,13 +11,13 @@ ytest <- read.table("./test/y_test.txt")
 stest <- read.table("./test/subject_test.txt") 
 
 test <- cbind(xtest, stest, ytest)
-merged_data <- rbind(train, test)
+data <- rbind(train, test)
 
 # 2. Extracts only the measurements on the mean and standard deviation for each measurement. 
 
 features <- read.table("features.txt", header=FALSE, stringsAsFactors=FALSE)
 features <- make.names(features[,"V2"])
-mean_std <- merged_data[,grep(pattern="std|mean", x=features, ignore.case=TRUE)]
+mean_std <- data[,grep(pattern="std|mean", x=features, ignore.case=TRUE)]
 
 # 3. Uses descriptive activity names to name the activities in the data set
 
